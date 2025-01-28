@@ -1,0 +1,217 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+import "@fontsource-variable/onest";
+import "../assets/main.css";
+import { ClientRouter } from "astro:transitions";
+import NavBar from "../components/NavBar.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+
+    <ClientRouter />
+  </head>
+  <body >
+    <NavBar />
+    <slot />
+
+    <canvas
+      transition:persist
+      id="gradient"
+      class="fixed w-full h-full inset-0 -z-10"></canvas>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: "Onest Variable", system-ui;
+    cursor: none;
+  }
+  ,
+  body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  #gradient {
+    transition: opacity 0.5s ease-in-out; /* Transición suave de 0.5s */
+  }
+</style>
+
+<script>
+  import { initCursor, disposeCursor} from "ipad-cursor";
+  initCursor();
+  document.addEventListener("astro:page-load", () => {
+    disposeCursor();
+    initCursor();
+  });
+</script>
+
+<script>
+  import { NeatGradient } from "@firecms/neat";
+
+  let neatInstance = null; // Variable para almacenar la instancia del gradiente
+
+  // Función para inicializar el gradiente
+  const initGradient = () => {
+    const htmlElement = document.documentElement;
+    const isDarkMode = htmlElement.classList.contains("dark");
+
+    const config = {
+      colors: [
+        {
+          color: isDarkMode ? "#000000" : "#ffffff",
+          enabled: false,
+        },
+        {
+          color: isDarkMode ? "#2c1bf3" : "#f3b2f2",
+          enabled: true,
+        },
+      ],
+      speed: 10,
+      horizontalPressure: 8,
+      verticalPressure: 7,
+      waveFrequencyX: 0,
+      waveFrequencyY: 0,
+      waveAmplitude: 0,
+      shadows: 0,
+      highlights: 0,
+      colorBrightness: 1,
+      colorSaturation: -4,
+      colorBlending: 10,
+      grainScale: 0,
+      grainIntensity: 0.1,
+      grainSpeed: 10,
+      resolution: 1,
+    };
+
+    const gradientElement = document.getElementById("gradient");
+
+    if (gradientElement) {
+      // Destruir la instancia anterior si existe
+      if (neatInstance) {
+        neatInstance.destroy(); // Usar el método destroy() de NeatGradient
+        neatInstance = null; // Eliminar la referencia a la instancia anterior
+      }
+
+      // Crear una nueva instancia del gradiente
+      neatInstance = new NeatGradient({
+        ref: gradientElement,
+        ...config,
+      });
+    }
+  };
+
+  // Inicializar el gradiente al cargar la página
+  initGradient();
+
+  // Escuchar cambios en la clase `dark` del elemento <html>
+  const htmlElement = document.documentElement;
+  let currentTheme = htmlElement.classList.contains("dark") ? "dark" : "light";
+
+  const observer = new MutationObserver(() => {
+    const newTheme = htmlElement.classList.contains("dark") ? "dark" : "light";
+    if (newTheme !== currentTheme) {
+      currentTheme = newTheme;
+      initGradient(); // Reinicializa el gradiente solo si el tema cambió
+    }
+  });
+
+  observer.observe(htmlElement, {
+    attributes: true, // Observar cambios en los atributos
+  });
+</script>
+
+<script>
+  /**
+   * Smooth Scroll JS
+   * new SmoothScroll(target,speed,smooth)
+   */
+
+  function init() {
+    new SmoothScroll(document, 120, 12);
+  }
+
+  function SmoothScroll(target, speed, smooth) {
+    if (target === document)
+      target =
+        document.scrollingElement ||
+        document.documentElement ||
+        document.body.parentNode ||
+        document.body; // cross browser support for document scrolling
+
+    var moving = false;
+    var pos = target.scrollTop;
+    var frame =
+      target === document.body && document.documentElement
+        ? document.documentElement
+        : target; // safari is the new IE
+
+    target.addEventListener("mousewheel", scrolled, { passive: false });
+    target.addEventListener("DOMMouseScroll", scrolled, { passive: false });
+
+    function scrolled(e) {
+      e.preventDefault(); // disable default scrolling
+
+      var delta = normalizeWheelDelta(e);
+
+      pos += -delta * speed;
+      pos = Math.max(
+        0,
+        Math.min(pos, target.scrollHeight - frame.clientHeight)
+      ); // limit scrolling
+
+      if (!moving) update();
+    }
+
+    function normalizeWheelDelta(e) {
+      if (e.detail) {
+        if (e.wheelDelta)
+          return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1); // Opera
+        else return -e.detail / 3; // Firefox
+      } else return e.wheelDelta / 120; // IE,Safari,Chrome
+    }
+
+    function update() {
+      moving = true;
+
+      var delta = (pos - target.scrollTop) / smooth;
+
+      target.scrollTop += delta;
+
+      if (Math.abs(delta) > 0.5) requestFrame(update);
+      else moving = false;
+    }
+
+    var requestFrame = (function () {
+      // requestAnimationFrame cross browser
+      return (
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (func) {
+          window.setTimeout(func, 1000 / 50);
+        }
+      );
+    })();
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    init();
+  });
+</script>

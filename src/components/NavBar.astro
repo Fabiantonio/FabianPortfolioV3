@@ -1,0 +1,213 @@
+---
+import CambiarTema from "./CambiarTema.astro";
+---
+
+<header>
+  <nav>
+    <div class="backdrop-blur-[10px]"></div>
+    <div
+      class="container py-[1rem] md:py-[1.5rem] px-5 md:px-[2rem] lg:px-[10rem] mx-auto"
+    >
+    <div class="flex items-center">
+      <div class="md:w-7/12 lg:w-4/6 2xl:w-4/6">
+        <p class="logo text-black dark:text-white transition-colors text-[1.5rem] font-bold">
+          vntoniojr
+        </p>
+      </div>
+      <div
+        id="nav-menu"
+        class="w-full flex justify-between invisible translate-x-[80%] md:translate-x-0 md:visible opacity-0 md:opacity-100"
+      >
+        <ul
+          class="flex md:gap-8 text-black dark:text-white transition-colors text-base"
+        >
+          <li data-cursor="block"  class="hover:scale-125 transition-transform duration-300">
+            <a  href="/">Inicio</a>
+          </li>
+          <li data-cursor="block"  class="hover:scale-125 transition-transform duration-300">
+            <a href="/proyectos">Proyectos</a>
+          </li>
+          <li data-cursor="block"  class="hover:scale-125 transition-transform duration-300">
+            <a href="/skills">Skills</a>
+          </li>
+        </ul>
+        <div
+          class="flex justify-center items-end md:items-center gap-5 text-black dark:text-white"
+        >
+          <a
+          data-cursor="block" 
+            href="https://www.linkedin.com/in/fabian-casas-266691324/"
+            target="_blank"
+            aria-label="hidden"
+            class="hover:scale-125 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"
+              ></path><path d="M16 16v-3a2 2 0 1 0 -4 0"></path><path
+                d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"
+              ></path></svg
+            >
+          </a>
+          <a
+          data-cursor="block" 
+            href="https://github.com/Fabiantonio"
+            target="_blank"
+            aria-label="hidden"
+            class="hover:scale-125 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+              ></path></svg
+            >
+          </a>
+          <a
+          data-cursor="block" 
+            href="https://discord.com/users/953083781785464842"
+            target="_blank"
+            aria-label="hidden"
+            class="hover:scale-125 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-discord"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path><path
+                d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path><path
+                d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3"
+              ></path><path d="M7 16.5c3.5 1 6.5 1 10 0"></path></svg
+            >
+          </a>
+          <div>
+            <CambiarTema />
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex md:hidden justify-end" transition:persist>
+        <button id="hamburger-button" class="md:hidden" transition:persist>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M4 6l16 0"></path>
+            <path d="M4 12l16 0"></path>
+            <path d="M4 18l16 0"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const hamburgerButton = document.getElementById("hamburger-button");
+  const navMenu = document.getElementById("nav-menu");
+
+  document.addEventListener("astro:page-load", () => {
+    const navMenu = document.getElementById("nav-menu");
+    const hamburgerButton = document.getElementById("hamburger-button");
+    hamburgerButton.addEventListener("click", () => {
+      navMenu.classList.toggle("translate-x-[80%]");
+      navMenu.classList.toggle("opacity-0");
+      navMenu.classList.toggle("invisible");
+    });
+  });
+</script>
+
+<style>
+
+
+  nav {
+    background-color: hsl(from var(--main-bg) h s l / 0.1);
+    li > .router-link-active {
+      color: var(--sec-clr);
+    }
+  }
+  #logo {
+    width: fit-content;
+    font-weight: bold;
+    display: block;
+
+    p:first-of-type {
+      font-size: 10px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    #nav-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      height: calc(100dvh - 80px);
+      background: rgba(0, 0, 0, 0.374);
+      background-color: hsl(from var(--main-bg) h s l / 0.1);
+      z-index: 1;
+      padding: 0 0 1rem 0;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      transition: all 0.5s ease-in-out;
+    }
+    #nav-menu ul {
+      display: flex;
+      flex-direction: column;
+      height: 80%;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        &:hover {
+          color: var(--main-clr);
+        }
+      }
+      a,
+      li {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+</style>
