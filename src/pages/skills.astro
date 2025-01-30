@@ -1,19 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SKILLS } from "../lib/constants";
-import "../assets/main.css"
+import "../assets/main.css";
 ---
 
 <Layout title="Skills">
   <ssection
-    class="mt-[1rem] md:mt-[0rem] 2xl:mt-[0rem] w-full h-auto mx-auto max-w-5xl flex flex-wrap justify-center gap-5 p-5 overflow-hidden"
+    class="mt-[1rem] md:mt-[8rem] 2xl:mt-[0rem] w-full h-auto mx-auto max-w-5xl flex flex-wrap justify-center gap-5 p-5 overflow-hidden"
   >
     {
       SKILLS.map((skills, index) => (
         <div
-        
-          class="card"
-          data-aos-duration="1000"
+          class="card mb-[12rem]"
+          data-aos-duration="1700"
           data-aos={
             index % 10 === 0
               ? "fade-right"
@@ -55,7 +54,9 @@ import "../assets/main.css"
             <div class=" card__content flex flex-col justify-center items-center p-2 gap-5">
               <skills.icon class="size-16" />
               <div class="skill-box">
-                <span class="title text-neutral-700 dark:text-neutral-300">{skills.name}</span>
+                <span class="title text-neutral-700 dark:text-neutral-300">
+                  {skills.name}
+                </span>
 
                 <div class="skill-bar">
                   <span class={`${skills.class}`}>
