@@ -9,6 +9,9 @@ import AngularIcon from "../components/icons/icons/AngularIcon.astro";
 import IonicIcon from "../components/icons/icons/IonicIcon.astro";
 import FireBase from "../components/icons/icons/FireBase.astro";
 import BoostrapIcon from "../components/icons/icons/boostrapIcon.astro";
+import SqlIcon from "@/components/icons/icons/SqlIcon.astro";
+import AstroIcon from "@/components/icons/icons/AstroIcon.astro"
+import TailwindIcon from "@/components/icons/icons/TailwindIcon.astro";
 
 
 export const SKILLS = [
@@ -29,6 +32,24 @@ export const SKILLS = [
         class: "skill-per javascript",
         per: "70%",
         icon: JavascriptIcon,
+    },
+    {
+        name: "ASTRO",
+        class: "skill-per astro",
+        per: "70%",
+        icon: AstroIcon,
+    },
+    {
+        name: "TAILWIND",
+        class: "skill-per tailwind",
+        per: "80%",
+        icon: TailwindIcon,
+    },
+    {
+        name: "SQL",
+        class: "skill-per sql",
+        per: "60%",
+        icon: SqlIcon,
     },
     {
         name: "PYTHON",
@@ -65,12 +86,6 @@ export const SKILLS = [
         class: "skill-per firebase",
         per: "60%",
         icon: FireBase,
-    },
-    {
-        name: "BOOTSRTAP",
-        class: "skill-per boostrap",
-        per: "50%",
-        icon: BoostrapIcon,
     },
 ]
 

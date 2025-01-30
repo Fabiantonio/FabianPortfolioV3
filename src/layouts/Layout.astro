@@ -53,7 +53,18 @@ import NavBar from "../components/NavBar.astro";
 
 <script>
   import { initCursor, disposeCursor} from "ipad-cursor";
-  initCursor();
+
+  const config = {
+  normalStyle: {
+    backdropBlur: "20px",
+  },
+  blockStyle: {
+    backdropBlur: "0px",
+    durationBackdropFilter: "1s",
+  },
+};
+
+  initCursor(config);
   document.addEventListener("astro:page-load", () => {
     disposeCursor();
     initCursor();
