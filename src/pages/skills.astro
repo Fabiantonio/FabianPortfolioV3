@@ -11,32 +11,10 @@ import "../assets/main.css";
     {
       SKILLS.map((skills, index) => (
         <div
-          class="card mb-[12rem]"
+          class="card mb-[8rem]"
           data-aos-duration="1700"
-          data-aos={
-            index % 10 === 0
-              ? "fade-right"
-              : index % 10 === 1
-                ? "fade-down"
-                : index % 10 === 2
-                  ? "fade-left"
-                  : index % 10 === 3
-                    ? "fade-right"
-                    : index % 10 === 4
-                      ? "fade-down"
-                      : index % 10 === 5
-                        ? "fade-left"
-                        : index % 10 === 6
-                          ? "fade-right"
-                          : index % 10 === 7
-                            ? "fade-down"
-                            : index % 10 === 8
-                              ? "fade-left"
-                              : index % 10 === 9
-                                ? "fade-down"
-                                : index % 10 === 10
-          }
-          data-aos-duration="1000"
+          data-aos-delay="200"
+          data-aos="fade"
         >
           <div class="  bg-zinc-100 dark:bg-[#1a1a1a] w-72 h-48 rounded-lg overflow-hidden dark:shadow-slate-50 transition-shadow duration-500">
             <div class="flex p-2 gap-1">
